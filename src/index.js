@@ -15,6 +15,7 @@ import 'firebase/auth'
 import 'firebase/storage'
 import './loadAllImages'
 import preLoadAllImages from './loadAllImages'
+import InitializeFirebase from './config/firebaseConfig'
 
 const initState = {}
 
@@ -24,16 +25,7 @@ const rrfConfig = {
     useFirestoreForProfile: true // Firestore for Profile instead of Realtime DB
 }
 
-var fbconfig = {
-    apiKey: "AIzaSyDwo5XIRdtBeEW0rH4aHx8CKVmHKZFwDRc",
-    authDomain: "blog-tut-app.firebaseapp.com",
-    databaseURL: "https://blog-tut-app.firebaseio.com",
-    projectId: "blog-tut-app",
-    storageBucket: "blog-tut-app.appspot.com",
-    messagingSenderId: "21805074969"
-}
-
-firebase.initializeApp(fbconfig)
+InitializeFirebase()
 
 // Initialize other services on firebase instance
 var database = firebase.firestore() // <- needed if using firestore
